@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  collector:
+    build: ./Collector/
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+    image: rabbitmq:3.11.3-management-alpine
+    ports:
+      - "15672:15672"
