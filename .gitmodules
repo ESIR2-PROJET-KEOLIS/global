@@ -1,0 +1,3 @@
+[submodule "Collector"]
+	path = Collector
+	url = https://github.com/ESIR2-PROJET-KEOLIS/Collector
