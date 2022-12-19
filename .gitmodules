@@ -1,3 +1,9 @@
 [submodule "Collector"]
 	path = Collector
 	url = https://github.com/ESIR2-PROJET-KEOLIS/Collector
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/ESIR2-PROJET-KEOLIS/frontend
+[submodule "backend"]
+	path = backend
+	url = https://github.com/ESIR2-PROJET-KEOLIS/backend
