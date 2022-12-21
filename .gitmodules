@@ -7,3 +7,6 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/ESIR2-PROJET-KEOLIS/backend
+[submodule "processing-storage-unit"]
+	path = processing-storage-unit
+	url = https://github.com/ESIR2-PROJET-KEOLIS/processing-storage-unit
