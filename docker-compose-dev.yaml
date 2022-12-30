@@ -8,17 +8,19 @@ services:
     image: rabbitmq:3.11.3-management-alpine
     ports:
       - "15672:15672"
-      - "5672:5672"
-  #frontend:
-    #build: ./frontend/
-    #depends_on:
-      #- backend
-    #ports:
+      - "5672:5672" # Only for developpement purposes (can be removed in production)
+  frontend:
+    build: ./frontend/
+    depends_on:
+      - backend
+    ports:
       - "3000:3000"
-  #backend:
-    #build: ./backend/
-    #depends_on:
-      #- rabbitmq
+  backend:
+    build: ./backend/
+    depends_on:
+      - rabbitmq
+    environment:
+      AMQP_URL: amqp://guest:guest@rabbitmq:5672
   processingunit:
     build: ./processing-storage-unit/
     depends_on:
