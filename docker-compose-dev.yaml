@@ -10,7 +10,8 @@ services:
       - "15672:15672"
       - "5672:5672" # Only for developpement purposes (can be removed in production)
   frontend:
-    build: ./frontend/
+    build:
+      context: ./frontend/
     depends_on:
       - backend
     ports:
@@ -21,6 +22,8 @@ services:
       - rabbitmq
     environment:
       AMQP_URL: amqp://guest:guest@rabbitmq:5672
+    ports:
+        - "4000:4000"
   processingunit:
     build: ./processing-storage-unit/
     depends_on:
