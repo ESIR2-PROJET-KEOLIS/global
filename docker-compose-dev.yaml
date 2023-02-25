@@ -20,6 +20,7 @@ services:
     build: ./backend/
     depends_on:
       - rabbitmq
+      - db
     environment:
       AMQP_URL: amqp://guest:guest@rabbitmq:5672
     ports:
@@ -28,3 +29,19 @@ services:
     build: ./processing-storage-unit/
     depends_on:
       - rabbitmq
+  db:
+    build: ./mysql-db/
+    ports: 
+      - 6033:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80     
+ 
